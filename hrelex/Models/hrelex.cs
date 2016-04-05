@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace hrelex.Models
@@ -8,11 +8,10 @@ namespace hrelex.Models
     // Отделы
     public class Department
     {
-        public int DepartmentId { get; set; }
+        [Key]
         [Display(Name = "Отдел")]
-        [Required]
         public string DepartmentName { get; set; }
-        [Display(Name = "Местоположения")]
+        [Display(Name = "Местоположение")]
         [Required]
         public string Location { get; set; }
         // список сотрудников
@@ -31,7 +30,8 @@ namespace hrelex.Models
         public string LastName { get; set; }
 
         // Ссылка на отдел 
-       
+        public string DepartmentName { get; set; }
+        [ForeignKey("DepartmentName")]
         public Department Department { get; set; }
  
         //// список проектов

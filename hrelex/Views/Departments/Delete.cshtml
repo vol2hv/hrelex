@@ -1,0 +1,34 @@
+﻿@model hrelex.Models.Department
+
+@{
+    ViewBag.Title = "Удаление отдела";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление отдела</h2>
+
+<h3>Вы подтверждаете удаление этой записи?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartmentName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+
+    }
+</div>
